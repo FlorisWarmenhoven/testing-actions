@@ -24,5 +24,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Renaming Branch
     steps:
-      - run: git branch -m new_branch
-        if: (github.event.issues == 'edited')
+      - if: (github.event.issues == 'edited')
+      - run: |
+          git branch -m new_branch
+          git push origin -u new_branch
+          git push origin --delete test
+       
