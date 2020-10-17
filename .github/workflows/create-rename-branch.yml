@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Creating Branch
     steps:
+      - run: echo ${{ github.event.issues }}
       - uses: peterjgrainger/action-create-branch@v2.0.1
         if: (github.event.issues == 'assigned')
         env:
